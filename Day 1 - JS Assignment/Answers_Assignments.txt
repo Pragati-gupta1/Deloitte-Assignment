@@ -1,0 +1,68 @@
+Assignment-1
+~~~~~~~~~~~~~
+1. What are the popup boxes in javascript?
+Ans.  Alert box, Confirm box, and Prompt box.
+
+
+2. What is JavaScript engine for Safari?
+Ans. JavaScriptCore is Apple's engine for its Safari browser. 
+
+
+3. Test the following requirement using JavaScript 
+		a.  Create two separate *.js files 
+		b.  Write some messages using alert() 
+		c.   Import the above js files in other *.html document and observe.
+Ans. Already uploaded in day1 folder.
+		
+
+4.   Do some changes and observe	
+		a.  Give some wrong file name while import and observe the messages in console window 
+Ans: error 404
+
+		b.  Is  Filename case sensitive check practically?
+Ans: No, Filename is not case sensitive.	
+		
+
+5.  What are the key differences between Java and JavaScript?
+Ans. *Java is an OOP programming language while Java Script is an OOP scripting language.
+*Java creates applications that run in a virtual machine or browser while JavaScript code is run on a browser only. 
+*Java code needs to be compiled while JavaScript code are all in text.
+
+-------------------------------------------------------------------------------------------------
+
+
+Assignment-2
+~~~~~~~~~~~~
+1. Is it possible to disable JavaScript in browser?  If yes, How to disable javascript in browser?
+Ans. Open an internet browser.
+Click on the icon intended for either the control panel or settings.
+Look into advanced options for privacy and security.
+Locate the JavaScript module and toggle the switch off.
+
+
+2. What is the difference between undefined and not defined in JavaScript?
+Ans.  A variable that has been declared but not assigned a value is undefined . A variable that has not been declared at all is not defined 
+
+
+3. Difference between ==  and ===?  
+Ans. In == only the data(value) is checked
+eg- console.log(10 == "10") this will give true
+In === the data(value) as well data type is also checked
+eg- console.log(10 === "10") this will give false since value is same but data type is different.
+
+
+4. What does the isNaN() function?
+Ans. isNaN() returns true if a number is Not-a-Number.
+
+
+5. Difference between Client side JavaScript and Server side JavaScript?
+Ans.Server-side processes are executed on the web server, while client-side processes are executed on the user's device.
+
+
+6. Practical :  Write a JavaScript code to display Employee details as follows in console window: (Status: Done)
+				Empno : 12645,  Ename  :  Scott,  Job : Manager, Salary :  45000
+Ans. Already uploaded in day1 folder.
+	
+----------------------------------------------------------------------------------------------
+
+
