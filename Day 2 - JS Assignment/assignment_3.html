@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container {
+        border: 2px solid palevioletred;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <p style="text-align: center;">Assignment - 3
+        <p>
+            First Number : <input type="number" id="fNum" />
+            <br /><br />
+            Second Number : <input type="number" id="sNum" style="margin-left: 27px;" />
+            <br /><br />
+            <input type="button" id="add" onmouseover="operation(event)" value="Add" />
+            <input type="button" id="sub" onmouseover="operation(event)" value="Sub" />
+            <input type="button" id="mul" onmouseover="operation(event)" value="Mul" />
+            <input type="button" id="div" onmouseover="operation(event)" value="Div" />
+
+        <p id="p1"></p>
+    </div>
+
+
+    <script>
+        // write one function that will calculate addition, subtraction, multiplication and division using event.target 
+        function operation(event) {
+            var fNum = parseInt(document.getElementById("fNum").value);
+            var sNum = parseInt(document.getElementById("sNum").value);
+            var p1 = document.getElementById("p1");
+            var result = 0;
+            if (event.target.id == "add") {
+                result = fNum + sNum;
+            } else if (event.target.id == "sub") {
+                result = fNum - sNum;
+            } else if (event.target.id == "mul") {
+                result = fNum * sNum;
+            } else if (event.target.id == "div") {
+                result = fNum / sNum;
+            }
+            p1.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
