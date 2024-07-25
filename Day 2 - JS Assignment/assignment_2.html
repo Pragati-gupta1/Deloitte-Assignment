@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container {
+        border: 2px solid palevioletred;
+        padding: 10;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <p style="text-align: center;">Assignment - 2
+        <p>
+            Product Name : <input type="text" id="product1" />
+            <br /><br />
+            Unit Price : <input type="number" id="unit1" style="margin-left: 27px;" />
+            <br /><br />
+            Quantity : <input type="number" id="quatity1" style="margin-left: 37px;" />
+            <br /><br />
+            <input type="button" onclick="buttonClick()" value="Get Total" />
+        </p>
+    </div>
+</body>
+
+<script>
+    // if qty is more than 10 give 10% , if qty is more than 20 give 15% and if qty is more than 30 give 20% discount
+    function buttonClick() {
+        if (confirm("Do you want to continue?") == true) {
+            var uPrice = document.getElementById("unit1");
+            var quantity = document.getElementById("quatity1");
+
+            var total = uPrice.value * quantity.value;
+            var discount = 0;
+
+            if (quantity.value > 10 && quantity.value <= 20) {
+                discount = total * 0.1;
+            }
+            else if (quantity.value > 20 && quantity.value <= 30) {
+                discount = total * 0.15;
+            }
+            else if (quantity.value > 30) {
+                discount = total * 0.2;
+            }
+            else {
+                discount = 0;
+            }
+            var total = total - discount;
+            document.getElementById("p1").innerHTML = "Total : " + total;
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,32 @@
+4.  What is BOM?  DOM?   Diff.  between BOM vs DOM?
+Document Object Model (DOM) is a programming interface for HTML and XML documents, that allows to create, manipulate, or delete the element from the document. 
+
+Browser Object Model (BOM) is a browser-specific convention referring to all the objects exposed by the web browser. The BOM allows JavaScript to “interact with” the browser.
+
+5.  How to use  document.getElementsByTagName()  method?
+The getElementsByTagName() method returns a collection of all elements with a specified tag name.
+eg.
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Document Object</h1>
+<h2>The getElementsByTagName() Method</h2>
+
+<p>An unordered list:</p>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<p>The innerHTML of the second li element is:</p>
+<p id="demo"></p>
+
+<script>
+const collection = document.getElementsByTagName("li");
+document.getElementById("demo").innerHTML = collection[1].innerHTML;
+</script>
+
+</body>
+</html>

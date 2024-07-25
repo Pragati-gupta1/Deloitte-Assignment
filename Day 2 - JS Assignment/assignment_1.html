@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    fieldset{
+        border: 1px solid black;
+        margin: 50px;
+        background-color: lightgoldenrodyellow;
+    }
+
+    #button{
+        background-color: lightblue;
+        border-radius: 10px;
+        padding: 10px;
+    }
+</style>
+
+<body>
+
+    <h3>Assignment - 1</h3>
+    <hr />
+    
+        <fieldset style="width: 500px; height: 250px;" >
+            <legend>User Login</legend>
+            User Name : <input type="text" id="text1" style="width: 150px;"/>
+            <br /><br />
+            Password : <input type="password" id="text2" style="width: 150px; margin-left: 10px;"/>
+            <br /><br />
+            <input type="button" id="button" onclick="buttonClick()" value="Login" />
+
+            <p id="para1"></p>
+        </fieldset>
+   
+
+
+    <script>
+        function buttonClick() {
+            var txtObj1 = document.getElementById("text1");
+            var txtObj2 = document.getElementById("text2");
+            var paraObj = document.getElementById("para1");
+
+            var uid = txtObj1.value;
+            var pwd = txtObj2.value;
+
+            var message = "";
+
+            if (uid == "admin" && pwd == "admin123") {
+                message = "<u style='color:green'>Welcome " + uid + "</u>";
+            }
+            else {
+                message = "<span style='color:red'>Invalid User Id or Password</span>";
+            }
+            paraObj.innerHTML = message;
+        }
+    </script>
+</body>
+
+</html>
