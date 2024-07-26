@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word Counter</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
+
+<body>
+    <label for="">Enter String: </label><br>    
+    <input type="text" id="str" required placeholder="Enter String"><br><br>
+    <button onclick="Count()">Count</button><br>
+    <p id="display"></p>
+
+    <script>
+        function Count() {
+            let string = document.getElementById("str").value;
+            let count = space(string);
+            document.getElementById("display").innerHTML = `Number of words in string are ${count}`
+        }
+
+        function space(string) {
+            let split = string.split(" ");
+            let calLength = split.length;
+            return calLength
+        }
+    </script>
+</body>
+
+</html>
