@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Object</title>
+    <style>
+        /* add style to look page better */
+        body {
+            background-color: #ecc1c1;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Employee Object</h1>
+    <button type="button" id="create-employee-btn">Create Employee</button>
+    <div id="employee-details"></div>
+
+    <script>
+
+        const createEmployeeBtn = document.getElementById('create-employee-btn');
+        const employeeDetailsDiv = document.getElementById('employee-details');
+
+        createEmployeeBtn.addEventListener('click', createEmployee);
+
+        function createEmployee() {
+            // Technique 1: Object Initializer
+            const employee1 = {
+                empno: 101,
+                ename: 'John Doe',
+                job: 'Software Engineer',
+                sal: 50000,
+                deptno: 10
+            };
+
+            // Technique 2: Empty Object
+            const employee2 = {};
+            employee2.empno = 102;
+            employee2.ename = 'Jane Doe';
+            employee2.job = 'Marketing Manager';
+            employee2.sal = 60000;
+            employee2.deptno = 20;
+
+            // Technique 3: Constructor Function
+            function Employee(empno, ename, job, sal, deptno) {
+                this.empno = empno;
+                this.ename = ename;
+                this.job = job;
+                this.sal = sal;
+                this.deptno = deptno;
+            }
+            const employee3 = new Employee(103, 'Bob Smith', 'Sales Representative', 40000, 30);
+
+            // Display the employee details
+            employeeDetailsDiv.innerHTML = `
+    <h2>Employee Detail Through Object Initializer</h2>
+    <p>Emp No: ${employee1.empno}</p>
+    <p>Name: ${employee1.ename}</p>
+    <p>Job: ${employee1.job}</p>
+    <p>Salary: ${employee1.sal}</p>
+    <p>Dept No: ${employee1.deptno}</p>
+
+    <h2>Employee Detail Through Empty Object</h2>
+    <p>Emp No: ${employee2.empno}</p>
+    <p>Name: ${employee2.ename}</p>
+    <p>Job: ${employee2.job}</p>
+    <p>Salary: ${employee2.sal}</p>
+    <p>Dept No: ${employee2.deptno}</p>
+
+    <h2>Employee Detail Through Constructor Function</h2>
+    <p>Emp No: ${employee3.empno}</p>
+    <p>Name: ${employee3.ename}</p>
+    <p>Job: ${employee3.job}</p>
+    <p>Salary: ${employee3.sal}</p>
+    <p>Dept No: ${employee3.deptno}</p>
+  `;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Power Function</title>
+</head>
+
+<body>
+    <h1>Power Function</h1>
+    <form>
+        <label for="x">Base Number (x):</label>
+        <input type="number" id="x" name="x"><br><br>
+        <label for="y">Exponent (y):</label>
+        <input type="number" id="y" name="y"><br><br>
+        <button type="button" onclick="calculatePower()">Calculate</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculatePower() {
+            //  x and y from user input
+            var x1 = document.getElementById("x").value;
+            var y1 = document.getElementById("y").value;
+
+            // Input validation
+            if (isNaN(x1) || isNaN(y1)) {
+                alert("Please enter valid numbers for x and y.");
+                return;
+            }
+
+            // Calculate the power value
+            var result = Math.pow(parseFloat(x1), parseFloat(y1));
+
+            // Display the result
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
+</body>
+
+</html>
