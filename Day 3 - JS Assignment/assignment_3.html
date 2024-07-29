@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div {
+            border: 2px solid Red;
+            color: Blue;
+            font-size: 30px;
+            height: 150px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Assignment</h3>
+    <label>Meal Cost: </label>
+    <input type="number" id="Meal" required placeholder="Enter Meal Cost"><br><br>
+    <input type="button" value="Calculate" onclick="bclick()" />
+    <br>
+
+    <div id="div"> </div>
+
+    <script>
+        var div1 = document.getElementById("div");
+
+        function bclick() {
+            let p = Number(document.getElementById("Meal").value);
+            console.log(p);
+            let m = total(p);
+            console.log(m);
+            var str = `Meal Base Cost  : ${m.meal} <br> Tip Amount : ${m.tip}
+             <br> Tax Amount : ${m.tax} <br> Total : ${m.total}`;
+            div1.innerHTML = str;
+        }
+
+        function total(p) {
+            let tip = p / 10;
+            let tax = p * 8 / 100;
+            let total = p + tip + tax;
+            total = Math.round(total);
+
+            var m = {};
+            m.meal = p;
+            m.tip = tip
+            m.tax = tax;
+            m.total = total;
+            console.log(m);
+            return m;
+        }
+    </script>
+</body>
+
+</html>
