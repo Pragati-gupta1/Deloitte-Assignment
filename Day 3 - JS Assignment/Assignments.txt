@@ -1,0 +1,41 @@
+1.  Create a web page to define the functions for the following requirements + with UI
+			a.  Function to find out the no. of even numbers in the given array .
+			b.  Function to find out power value  ( x power y). Read x and y from user
+			c.   Function to return no. of words in the given string.   Read string from the user. 
+				
+2.   Create a web page to prepare employee object with the following properties:
+				
+				a.  empno, ename, job, sal, deptno
+				b.  Implement all three techniques to create object
+
+3.  Study the data from the below url :				
+					https://www.w3schools.com/angular/customers.php
+
+
+
+4.  Create a web page to read the meal price (base cost of a meal) from the user.  Find out the total cost of the meal by adding tip percent (10%), and tax percent (8%) for the base cost of the meal.   Round the result to the nearest integer. 
+		a.   Create  a function that takes meal cost as parameter
+		b.   Function should return object that contains the following properties:
+						mealBaseCost
+						tipAmount 
+						taxAmount
+						totalAmount 
+		c.    Display all the details on the web page.
+
+
+5.   Create a web page to display customer details in table format using JavaScript.  
+
+	Hint :  Copy the data from the below url.  Create an array with that data and generate table using javascript.
+							https://www.w3schools.com/angular/customers.php
+		
+		let customersArray =  [
+						{"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"}, 
+						{"Name":"Ana Trujillo helados","City":"México D.F.","Country":"Mexico"}, 
+						{"Name":"Antonio Moreno","City":"México D.F.","Country":"Mexico"}, 
+						{"Name":"Around the Horn","City":"London","Country":"UK"}
+			];
+			
+	
+ 
+
+ 
