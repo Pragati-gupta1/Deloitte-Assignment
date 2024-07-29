@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Management System</h1>
+    <button onclick="showUsers()">Show Users</button>
+    <br><br>
+    <input type="text" id="userId" placeholder="Enter User ID to remove">
+    <button onclick="removeUser()">Remove User</button>
+    <br><br>
+    <table id="usersTable">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Avatar</th>
+        </tr>
+    </table>
+
+    <script>
+        function showUsers() {
+            fetch('https://reqres.in/api/users')
+                .then(response => response.json())
+                .then(data => {
+                    const users = data.data;
+                    const table = document.getElementById("usersTable");
+                    
+                    while (table.rows.length > 1) {
+                        table.deleteRow(1);
+                    }
+                    
+                    users.forEach((user, index) => {
+                        const row = table.insertRow(-1);
+                        const cell1 = row.insertCell(0);
+                        const cell2 = row.insertCell(1);
+                        const cell3 = row.insertCell(2);
+                        const cell4 = row.insertCell(3);
+                        const cell5 = row.insertCell(4);
+                        cell1.innerHTML = index + 1; // Use index for ID display
+                        cell2.innerHTML = user.email;
+                        cell3.innerHTML = user.first_name;
+                        cell4.innerHTML = user.last_name;
+                        cell5.innerHTML = `<img src="${user.avatar}" alt="Avatar" style="width: 50px; height: 50px;">`;
+                    });
+                });
+        }
+
+        function removeUser() {
+            const idToRemove = document.getElementById("userId").value;
+            const table = document.getElementById("usersTable");
+            let found = false;
+            for (let i = 1, row; row = table.rows[i]; i++) {
+                if (row.cells[0].innerHTML === idToRemove) {
+                    table.deleteRow(i);
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                // Update IDs for all following rows
+                for (let i = 1; i < table.rows.length; i++) {
+                    table.rows[i].cells[0].innerHTML = i;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
