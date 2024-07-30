@@ -1,0 +1,16 @@
+Q) What is setInterval()  and setTimeout() methods in JavaScript?
+Ans) setTimeout(function, milliseconds)
+Executes a function, after waiting a specified number of milliseconds.
+
+setInterval(function, milliseconds)
+Same as setTimeout(), but repeats the execution of the function continuously.
+
+------------------------------------------------------------------------------
+Q)  What are promisees in JavaScript? Why do we use? 
+Ans)JavaScript Promises are used to simplify managing multiple asynchronous operations, preventing callback hell and unmanageable code. They represent future values, associating handlers with eventual success or failure, resembling synchronous methods by postponing value delivery.
+
+Syntax:
+
+let promise = new Promise(function(resolve, reject){
+     //do something
+});
