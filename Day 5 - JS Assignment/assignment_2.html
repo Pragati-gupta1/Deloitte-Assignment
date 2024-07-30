@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Contact Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Friend Contact Manager</h2>
+    <input type="text" id="nameInput" placeholder="Enter Friend's Name">
+    <input type="text" id="phoneInput" placeholder="Enter Friend's Phone Number">
+    <button onclick="addFriend()">Add Friend</button>
+    <button onclick="getPhoneNumber()">Get Phone Number</button>
+    <div id="output"></div>
+
+    <script>
+        var frnd = new Map();
+
+        function addFriend() {
+            var name = document.getElementById('nameInput').value;
+            var phone = document.getElementById('phoneInput').value;
+            if (name && phone) {
+                frnd.set(name, phone);
+                document.getElementById('output').innerText = 'Friend ' + name + ' added successfully.';
+                document.getElementById('nameInput').value = '';
+                document.getElementById('phoneInput').value = '';
+            } else {
+                document.getElementById('output').innerText = 'Please enter both name and phone number.';
+            }
+        }
+
+        function getPhoneNumber() {
+            var name = document.getElementById('nameInput').value;
+            if (name && frnd.has(name)) {
+                var phone = frnd.get(name);
+                document.getElementById('output').innerText = 'Phone Number of ' + name + ' is ' + phone + '.';
+            } else {
+                document.getElementById('output').innerText = 'Name not found or missing input.';
+            }
+        }
+    </script>
+</body>
+</html>

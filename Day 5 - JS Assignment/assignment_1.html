@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #accountDetails {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+    <script>
+        // Defining the BankAccount class
+        class BankAccount {
+            constructor(AccNumber, Name) {
+                this.AccNumber = AccNumber;
+                this.Name = Name;
+                this.City = null; // city, email,phonenumber are optional
+                this.Email = null; 
+                this.PhoneNumber = null; 
+            }
+        }
+
+        // Define the FDAccount class that inherits from BankAccount
+        class FDAccount extends BankAccount {
+            constructor(AccNumber, Name, FDAmount, InterestRate = 8.5, Duration = 12) {
+                super(AccNumber, Name); // Calling the parent class constructor
+                this.FDAmount = FDAmount;
+                this.InterestRate = InterestRate;
+                this.Duration = Duration;
+            }
+        }
+
+        // invoking the constructor
+        let fdAccount = new FDAccount("123456789", "John Doe", 5000);
+
+        
+        function displayDetails() {
+            let detailsDiv = document.getElementById("accountDetails");
+            detailsDiv.innerHTML = `
+                <p>Account Number: ${fdAccount.AccNumber}</p>
+                <p>Name: ${fdAccount.Name}</p>
+                <p>Fixed Deposit Amount: ${fdAccount.FDAmount}</p>
+                <p>Interest Rate: ${fdAccount.InterestRate}%</p>
+                <p>Duration: ${fdAccount.Duration} months</p>
+            `;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="displayDetails()">Show Account Details</button>
+    <div id="accountDetails"></div>
+</body>
+</html>
