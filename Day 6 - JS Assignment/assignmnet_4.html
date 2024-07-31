@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Ad Generator</title>
+</head>
+
+<body>
+    <h1>Dynamic Ad Display</h1>
+    <img src="1.jpg" id="adImage" alt="Advertisement" style="width:300px; height:auto;">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const imagesArray = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+            const imgElement = document.getElementById('adImage');
+
+            // Function to change the image
+            function changeImage() {
+                const randomIndex = Math.floor(Math.random() * imagesArray.length) + 1;
+                imgElement.src = imagesArray[randomIndex];
+            }
+
+            //  change image every 2 seconds
+            setInterval(changeImage, 2000);
+        });
+
+    </script>
+</body>
+
+</html>

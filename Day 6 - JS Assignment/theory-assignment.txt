@@ -1,0 +1,29 @@
+a.   How to hide html element using JavaScript?  jQuery? 
+Ans) 
+Using JavaScript:
+To hide an HTML element using plain JavaScript, you can modify the style property of the element to set its display to 'none'. 
+eg- document.getElementById('elementId').style.display = 'none';
+
+Using jQuery:
+In jQuery, hiding an element can be done simply with the .hide() method, which sets the CSS display property to 'none' for the selected elements. 
+eg- $('#elementId').hide();
+
+----------------------------------------------------------------------------
+b.  How to select all textboxes using jQuery selector?  
+Ans)
+To select all textboxes on a page using jQuery without using class names or IDs, you can use the input type selector. 
+
+$('input[type="text"]').each(function() {
+    // You can work with each textbox here
+});
+
+-----------------------------------------------------------------------------						
+c.  What is the difference between   "this" and  $(this) in jquery programming?
+Ans) 
+"this" in jQuery:
+In jQuery, this is a JavaScript keyword that refers to the DOM element currently being processed in the context of a function. It is used in event handlers and other function contexts to refer to the raw DOM element that is the source of the event or the element being acted upon.
+
+"$(this)" in jQuery:
+When you wrap this with $(), you are converting the raw DOM element into a jQuery object. This allows you to use jQuery methods on it. For example, if you're inside an event handler and you want to use jQuery's .css() method or any other jQuery method, you'll need to use $(this):
+
+

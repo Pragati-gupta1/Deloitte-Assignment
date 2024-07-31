@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Promise</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="generateNumber">Generate Random Number</button> <br>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('generateNumber').addEventListener('click', function () {
+            const randomNumberPromise = new Promise((resolve, reject) => {
+                const randomNumber = Math.floor(Math.random() * 50) + 1; // Generates a number between 1 and 50
+                if (randomNumber % 6 === 0) {
+                    resolve(randomNumber);
+                } else {
+                    reject(`Generated number ${randomNumber} is not a multiple of 6.`);
+                }
+            });
+
+            randomNumberPromise.then(number => {
+                document.getElementById('result').textContent = `Success: The number ${number} is a multiple of 6.`;
+            }).catch(error => {
+                document.getElementById('result').textContent = `Error: ${error}`;
+            });
+        });
+
+    </script>
+</body>
+
+</html>
