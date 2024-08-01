@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Table Styling</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            margin: 20px;
+            background-color: #f4f4f9; 
+            color: #333; 
+        }
+        h3 {
+            text-align: center; 
+            color: #2c3e50; 
+        }
+        table {
+            width: 80%; 
+            margin: 0 auto; /* Centers table on the page */
+            border-collapse: collapse; /* Removes space between borders */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+        th, td {
+            padding: 12px; 
+            text-align: left; /* Aligns text to the left */
+            border-bottom: 1px solid #adaaaa; /* Subtle line for separation */
+        }
+        th {
+            background-color: #3498db; 
+            color: white; 
+        }
+        hr {
+            margin-top: 0;
+            border: none;
+            height: 2px;
+            background-color: #3498db;
+            /* background-image: linear-gradient(to right, #ecf0f1, #3498db, #ecf0f1); Gradient effect for separation */
+        }
+    </style>
+</head>
+<body>
+    <h3>jQuery Programming - DOM Traversing</h3>
+    <hr />
+
+    <table id="table1">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Units In Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Printer</td>
+                <td>$2500.00</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>4GB-RAM</td>
+                <td>$1200.00</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>1TB Samsung HDD</td>
+                <td>$4500.00</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>32-GB Kingston USB</td>
+                <td>$800.00</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Wifi Router</td>
+                <td>$1800.00</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>1TB Samsung HDD</td>
+                <td>$4500.00</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>32-GB Kingston USB</td>
+                <td>$800.00</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td colspan="3"  style="background-color: #3498db; text-align: center;">**Summary Row</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // light green color to all rows initially
+            $("#table1 tr").css("background-color", "lightgreen");
+
+            // specific colors to the first and last rows
+            $("#table1 tr:first").css("background-color", "lightgreen");
+            $("#table1 tr:last").css("background-color", "lightgray");
+
+            // light pink color to rows where "Units In Stock" is zero
+            $("#table1 tr").each(function() {
+                var unitsInStock = $(this).find("td:last").text();
+                if (unitsInStock === "0") {
+                    $(this).css("background-color", "lightpink");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

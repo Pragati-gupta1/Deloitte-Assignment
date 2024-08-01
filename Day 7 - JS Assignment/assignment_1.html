@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a.remove {
+            color: red;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>jQuery Programming - DOM Traversing</h3>
+    <hr />
+
+    <table id="table1" border="2" width="400px">
+        <tr>
+            <th>Remove</th>
+            <th>Select</th> 
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+        </tr>
+        <tr>
+            <td><a href="#" class="remove">Remove</a></td> <!-- Remove link -->
+            <td><a href="#">Select</a></td>
+            <td>Printer</td>
+            <td>2500.00</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td><a href="#" class="remove">Remove</a></td>
+            <td><a href="#">Select</a></td>
+            <td>4GB-RAM</td>
+            <td>1200.00</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td><a href="#" class="remove">Remove</a></td>
+            <td><a href="#">Select</a></td>
+            <td>Printer</td>
+            <td>2500.00</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td><a href="#" class="remove">Remove</a></td>
+            <td><a href="#">Select</a></td>
+            <td>1TB Samsung HDD</td>
+            <td>4500.00</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td><a href="#" class="remove">Remove</a></td>
+            <td><a href="#">Select</a></td>
+            <td>32-GB Kingston USB</td>
+            <td>800.00</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td><a href="#" class="remove">Remove</a></td>
+            <td><a href="#">Select</a></td>
+            <td>Wifi Router</td>
+            <td>1800.00</td>
+            <td>0</td>
+        </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Select row highlight
+            $("#table1 a").click(function () {
+                if ($(this).hasClass('remove')) {
+                    // Remove the row
+                    $(this).closest('tr').remove();
+                    // closest() method returns the first ancestor of the selected element shorthand for parent basically
+                } else {
+                    // Highlight the row
+                    $("#table1 tr").css("background-color", "white");
+                    $(this).parent().parent().css("background-color", "pink");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
