@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #afafc0;
+        }
+
+        form {
+            margin: auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <form id="validationForm">
+        <label for="personName">Person Name:</label>
+        <input type="text" id="personName" placeholder="Enter name">
+        <br>
+
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" placeholder="Enter contact number">
+        <br>
+
+        <label for="vehicleNumber">Vehicle Number:</label>
+        <input type="text" id="vehicleNumber" placeholder="Enter vehicle number">
+        <br>
+
+        <label for="cityName">City Name:</label>
+        <input type="text" id="cityName" placeholder="Enter city name">
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#validationForm').submit(function (event) {
+                event.preventDefault();
+
+                // Validation for Person Name
+                var personName = $('#personName').val();
+                if (!/^[A-Za-z]{1,10}$/.test(personName)) {
+                    alert('Name must be up to 10 alphabets only.');
+                    return;
+                }
+
+                // Validation for Contact Number
+                var contactNumber = $('#contactNumber').val();
+                if (!/^\d{10}$/.test(contactNumber)) {
+                    alert('Contact number must be exactly 10 digits.');
+                    return;
+                }
+
+                // Validation for Vehicle Number
+                var vehicleNumber = $('#vehicleNumber').val();
+                if (!/^[A-Z]{2}\d{2}[A-Z]{2}\d{4}$/.test(vehicleNumber)) {
+                    alert('Vehicle number must be in format AA11AA1111.');
+                    return;
+                }
+
+                // Validation for City Name
+                var cityName = $('#cityName').val();
+                if (!/^[A-Z]+$/.test(cityName)) {
+                    alert('City name must be in uppercase letters only.');
+                    return;
+                }
+
+                // Form submitted alert
+                alert('Form submitted successfully!');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

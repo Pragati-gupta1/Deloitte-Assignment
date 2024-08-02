@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #afafc0;
+        }
+
+        .csv-reader {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        ul {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px;
+            margin-top: 5px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="csv-reader">
+        <textarea id="csv-input" placeholder="Enter CSV string here..."></textarea>
+        <button id="submit">Submit</button>
+        <ul id="csv-output"></ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#submit').click(function () {
+                var csvInput = $('#csv-input').val();
+                var items = csvInput.split(',');
+                console.log(items);
+                var outputElement = $('#csv-output');
+                outputElement.empty(); // Clearing previous entries
+
+                items.forEach(function (item) {
+                    var li = $('<li>').text(item.trim().toUpperCase()); // Converting to uppercase and trim spaces
+                    outputElement.append(li);
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

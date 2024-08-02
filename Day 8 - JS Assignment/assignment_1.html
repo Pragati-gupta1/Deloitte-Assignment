@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styler</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #afafc0;
+        }
+
+        .text-styler {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        #output {
+            margin-top: 20px;
+            margin-left: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            height: 100px;
+            overflow: auto;
+            background-color: #fafafa;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="text-styler">
+        <textarea id="text-input" placeholder="Type your text here..."></textarea>
+        <div class="buttons">
+            <button id="bold">Bold</button>
+            <button id="underline">Underline</button>
+            <button id="italic">Italic</button>
+            <button id="reset">Reset</button>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#bold').click(function () {
+                $('#output').css('font-weight', 'bold');
+            });
+
+            $('#underline').click(function () {
+                $('#output').css('text-decoration', 'underline');
+            });
+
+            $('#italic').click(function () {
+                $('#output').css('font-style', 'italic');
+            });
+
+            $('#reset').click(function () {
+                $('#output').css({
+                    'font-weight': 'normal',
+                    'text-decoration': 'none',
+                    'font-style': 'normal'
+                });
+            });
+
+            $('#text-input').on('input', function () {
+                $('#output').text($(this).val());
+            });
+        });
+
+    </script>
+</body>
+
+</html>
